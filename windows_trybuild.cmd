@@ -1,11 +1,9 @@
-set VERSION=%1
-set WORKSPACE=%GITHUB_WORKSPACE%
-cd %HOMEPATH%
-git clone https://github.com/nodejs/node.git
+set VERSION=16.16.0
+set WORKSPACE=%~dp0%
 
-cd node
-git fetch origin v%VERSION%
-git checkout v%VERSION%
+pushd %~dp0%node
+
+git reset --hard
 
 echo =====[ Patching Node.js ]=====
 node %WORKSPACE%\node-script\do-gitpatch.js -p %WORKSPACE%\patchs\win_build_v%VERSION%.patch
@@ -16,3 +14,5 @@ node %~dp0\node-script\make_v8_inspector_export.js
 
 echo =====[ Building Node.js ]=====
 .\vcbuild.bat dll openssl-no-asm
+
+popd
