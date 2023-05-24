@@ -1,7 +1,7 @@
 [ -z "$GITHUB_WORKSPACE" ] && GITHUB_WORKSPACE="$( cd "$( dirname "$0" )"/.. && pwd )"
 WORKSPACE=$GITHUB_WORKSPACE
 HOMEPATH=~
-VERSION=$1
+VERSION=16.16.0
 
 echo "=====[Patching Node.js]====="
 node $WORKSPACE/node-script/do-gitpatch.js -p $WORKSPACE/patchs/lib_uv_add_on_watcher_queue_updated_v$VERSION.patch

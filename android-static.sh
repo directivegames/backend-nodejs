@@ -3,7 +3,7 @@
 [ -z "$GITHUB_WORKSPACE" ] && GITHUB_WORKSPACE="$( cd "$( dirname "$0" )"/.. && pwd )"
 WORKSPACE=$GITHUB_WORKSPACE
 HOMEPATH=~
-VERSION=$1
+VERSION=16.16.0
 ARCH="$2"
 WITH_SSL=$3
 
